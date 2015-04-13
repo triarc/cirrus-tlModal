@@ -4,6 +4,7 @@ var Triarc;
     (function (Web) {
         var Modal;
         (function (Modal) {
+            Modal.mod = angular.module('tlModal', ['ui.bootstrap.modal']);
             function openConfirmModal(message, $modal, title) {
                 if (title === void 0) { title = "_defaultNotificationTitle"; }
                 var modalInstance = $modal.open({
