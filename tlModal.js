@@ -5,8 +5,10 @@ var Triarc;
         var Modal;
         (function (Modal) {
             Modal.mod = angular.module('tlModal', ['ui.bootstrap.modal']);
-            function openConfirmModal(message, $modal, title) {
+            function openConfirmModal(message, $modal, title, ok, cancel) {
                 if (title === void 0) { title = "_defaultNotificationTitle"; }
+                if (ok === void 0) { ok = "_ok"; }
+                if (cancel === void 0) { cancel = "_cancel"; }
                 var modalInstance = $modal.open({
                     templateUrl: 'Client/triarc/Views/partials/notificationModal.html',
                     size: 'md',
@@ -17,6 +19,12 @@ var Triarc;
                         },
                         title: function () {
                             return title;
+                        },
+                        ok: function () {
+                            return ok;
+                        },
+                        cancel: function () {
+                            return cancel;
                         }
                     }
                 });
@@ -27,9 +35,41 @@ var Triarc;
                 });
             }
             Modal.openConfirmModal = openConfirmModal;
-            var ModalInstanceCtrl = function ($scope, $modalInstance, message, title) {
+            function openInfoModal(message, $modal, title, ok, cancel) {
+                if (title === void 0) { title = "_defaultNotificationTitle"; }
+                if (ok === void 0) { ok = "_ok"; }
+                if (cancel === void 0) { cancel = "_cancel"; }
+                var modalInstance = $modal.open({
+                    templateUrl: 'Client/triarc/Views/partials/notificationInfoModal.html',
+                    size: 'md',
+                    controller: ModalInstanceCtrl,
+                    resolve: {
+                        message: function () {
+                            return message;
+                        },
+                        title: function () {
+                            return title;
+                        },
+                        ok: function () {
+                            return ok;
+                        },
+                        cancel: function () {
+                            return cancel;
+                        }
+                    }
+                });
+                return modalInstance.result.then(function () {
+                    return false;
+                }, function () {
+                    return false;
+                });
+            }
+            Modal.openInfoModal = openInfoModal;
+            var ModalInstanceCtrl = function ($scope, $modalInstance, message, title, ok, cancel) {
                 $scope.message = message;
                 $scope.title = title;
+                $scope.ok = ok;
+                $scope.cancel = cancel;
             };
         })(Modal = Web.Modal || (Web.Modal = {}));
     })(Web = Triarc.Web || (Triarc.Web = {}));
