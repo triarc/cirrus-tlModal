@@ -10,7 +10,7 @@ var Triarc;
                 if (ok === void 0) { ok = "_ok"; }
                 if (cancel === void 0) { cancel = "_cancel"; }
                 var modalInstance = $modal.open({
-                    templateUrl: 'Client/triarc/Views/partials/notificationModal.html',
+                    templateUrl: 'tlModal/notificationModal.html',
                     size: 'md',
                     controller: ModalInstanceCtrl,
                     resolve: {
@@ -40,7 +40,7 @@ var Triarc;
                 if (ok === void 0) { ok = "_ok"; }
                 if (cancel === void 0) { cancel = "_cancel"; }
                 var modalInstance = $modal.open({
-                    templateUrl: 'Client/triarc/Views/partials/notificationInfoModal.html',
+                    templateUrl: 'tlModal/notificationInfoModal.html',
                     size: 'md',
                     controller: ModalInstanceCtrl,
                     resolve: {
