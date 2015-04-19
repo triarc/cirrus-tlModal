@@ -6,18 +6,17 @@ var Triarc;
         (function (Modal) {
             Modal.mod = angular.module('tlModal', ['ui.bootstrap.modal']);
             var templateCache;
-            Modal.mod.run([
-                '$templateCache',
-                function ($templateCache) {
-                    templateCache = $templateCache;
-                }
-            ]);
+            //mod.run([
+            //  '$templateCache', ($templateCache: ng.ITemplateCacheService) => {
+            //    templateCache = $templateCache;
+            //  }
+            //]);
             function openConfirmModal(message, $modal, title, ok, cancel) {
                 if (title === void 0) { title = "_defaultNotificationTitle"; }
                 if (ok === void 0) { ok = "_ok"; }
                 if (cancel === void 0) { cancel = "_cancel"; }
                 var modalInstance = $modal.open({
-                    template: templateCache.get('tlModal/notificationModal.html'),
+                    template: "tlModal/notificationModal.html",
                     size: 'md',
                     controller: ModalInstanceCtrl,
                     resolve: {
