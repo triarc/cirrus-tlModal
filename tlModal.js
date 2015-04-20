@@ -16,7 +16,7 @@ var Triarc;
                 if (ok === void 0) { ok = "_ok"; }
                 if (cancel === void 0) { cancel = "_cancel"; }
                 var modalInstance = $modal.open({
-                    template: "tlModal/notificationModal.html",
+                    templateUrl: "tlModal/notificationModal.html",
                     size: 'md',
                     controller: ModalInstanceCtrl,
                     resolve: {
