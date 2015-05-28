@@ -55,7 +55,7 @@ angular.module('tlModal').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('tlModal/notificationModal.html',
-    "<div class=\"modal-header\"><h4 class=\"modal-title\" translate>{{title}}</h4></div><div class=\"modal-body\"><div translate>{{message}}</div></div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"$close(result)\" translate>_ok</button> <button class=\"btn btn-warning\" ng-click=\"$dismiss('cancel')\" translate>_cancel</button></div>"
+    "<div class=\"modal-header\"><h4 class=\"modal-title\" translate>{{title}}</h4></div><div class=\"modal-body\"><div translate>{{message}}</div></div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"$close(result)\" translate>{{ok}}</button> <button class=\"btn btn-warning\" ng-click=\"$dismiss('cancel')\" translate>{{cancel}}</button></div>"
   );
 
 }]);
