@@ -11,10 +11,11 @@ var Triarc;
             //    templateCache = $templateCache;
             //  }
             //]);
-            function openConfirmModal(message, $modal, title, ok, cancel) {
+            function openConfirmModal(message, $modal, title, ok, cancel, showCancel) {
                 if (title === void 0) { title = "_defaultNotificationTitle"; }
                 if (ok === void 0) { ok = "_ok"; }
                 if (cancel === void 0) { cancel = "_cancel"; }
+                if (showCancel === void 0) { showCancel = true; }
                 var modalInstance = $modal.open({
                     templateUrl: "tlModal/notificationModal.html",
                     size: 'md',
@@ -31,6 +32,9 @@ var Triarc;
                         },
                         cancel: function () {
                             return cancel;
+                        },
+                        showCancel: function () {
+                            return showCancel;
                         }
                     }
                 });
@@ -41,11 +45,12 @@ var Triarc;
                 });
             }
             Modal.openConfirmModal = openConfirmModal;
-            var ModalInstanceCtrl = function ($scope, $modalInstance, message, title, ok, cancel) {
+            var ModalInstanceCtrl = function ($scope, $modalInstance, message, title, ok, cancel, showCancel) {
                 $scope.message = message;
                 $scope.title = title;
                 $scope.ok = ok;
                 $scope.cancel = cancel;
+                $scope.showCancel = showCancel;
             };
         })(Modal = Web.Modal || (Web.Modal = {}));
     })(Web = Triarc.Web || (Triarc.Web = {}));
@@ -55,7 +60,7 @@ angular.module('tlModal').run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('tlModal/notificationModal.html',
-    "<div class=\"modal-header\"><h4 class=\"modal-title\" translate>{{title}}</h4></div><div class=\"modal-body\"><div translate>{{message}}</div></div><div class=\"modal-footer\"><button class=\"btn btn-primary\" ng-click=\"$close(result)\" translate>{{ok}}</button> <button class=\"btn btn-warning\" ng-click=\"$dismiss('cancel')\" translate>{{cancel}}</button></div>"
+    "<div class=\"modal-header\"><h4 class=\"modal-title\" translate>{{title}}</h4></div><div class=\"modal-body\"><div translate>{{message}}</div></div><div class=\"modal-footer\"><button ng-if=\"showCancel\" class=\"btn btn-primary\" ng-click=\"$dismiss('cancel')\" translate>{{cancel}}</button> <button class=\"btn btn-success\" ng-click=\"$close(result)\" translate>{{ok}}</button></div>"
   );
 
 }]);
