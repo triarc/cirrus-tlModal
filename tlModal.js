@@ -7,7 +7,7 @@ var Triarc;
             Modal.mod = angular.module('tlModal', ['ui.bootstrap.modal']);
             var templateCache;
             //mod.run([
-            //  '$templateCache', ($templateCache: ng.ITemplateCacheService) => {
+            //  '$templateCache', ($templateCache: angular.ITemplateCacheService) => {
             //    templateCache = $templateCache;
             //  }
             //]);
